@@ -80,6 +80,27 @@ Place your resume PDF at `client/public/resume.pdf` for the Download CV button.
 | GET | `/api/certifications` | Certifications |
 | POST | `/api/contact` | Send contact message |
 
+## Deploy to Netlify (Frontend)
+
+Netlify hosts the **React frontend only**. The Express/MongoDB backend must be deployed separately (e.g. Render or Railway).
+
+### Option A — Connect GitHub (recommended)
+
+1. Push this project to GitHub
+2. In Netlify: **Add new site → Import from Git**
+3. Netlify will read `netlify.toml` automatically:
+   - **Build command:** `npm install --prefix client && npm run build --prefix client`
+   - **Publish directory:** `client/dist`
+4. After the backend is live, add a Netlify environment variable:
+   - `VITE_API_URL` = `https://your-backend-url.com/api`
+5. Redeploy the site
+
+### Option B — Manual drag & drop
+
+1. Run `npm run build` locally
+2. Upload the **contents** of `client/dist` (not the whole project folder)
+3. The `_redirects` file inside `dist` fixes React Router 404 errors
+
 ## Tech Stack
 
 - **Frontend:** React, Vite, Tailwind CSS, Framer Motion, React Router
