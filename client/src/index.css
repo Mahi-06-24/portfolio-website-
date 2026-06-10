@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-surface text-white antialiased;
+    background-image:
+      radial-gradient(ellipse 80% 50% at 70% 20%, rgba(255, 100, 30, 0.15), transparent),
+      radial-gradient(ellipse 60% 40% at 20% 80%, rgba(245, 197, 24, 0.06), transparent);
+    min-height: 100vh;
+  }
+
+  ::selection {
+    @apply bg-gold/30 text-white;
+  }
+}
+
+@layer components {
+  .glass {
+    @apply rounded-3xl border border-white/10 bg-white/[0.04] backdrop-blur-xl shadow-glass;
+  }
+
+  .glass-sm {
+    @apply rounded-2xl border border-white/10 bg-white/[0.05] backdrop-blur-lg;
+  }
+
+  .section-title {
+    @apply text-sm font-semibold uppercase tracking-widest text-gold;
+  }
+
+  .heading-lg {
+    @apply text-3xl font-bold tracking-tight text-white md:text-4xl;
+  }
+}
